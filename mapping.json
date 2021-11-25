@@ -1,0 +1,97 @@
+{
+    "settings": {
+        "index": {
+            "number_of_shards": "1",
+            "number_of_replicas": "1"
+        },
+        "analysis": {
+            "analyzer": {
+                "sinhala-analyzer": {
+                    "type": "custom",
+                    "tokenizer": "icu_tokenizer",
+                    "filter": [
+                        "edge_ngram_custom_filter"
+                    ]
+                }
+            },
+            "filter": {
+                "edge_ngram_custom_filter": {
+                    "type": "edge_ngram",
+                    "min_gram": 2,
+                    "max_gram": 50,
+                    "side": "front"
+                }
+            }
+        }
+    },
+    "mappings": {
+        "properties": {
+            "Age": {
+                "type": "text",
+                "fields": {
+                    "keyword": {
+                        "type": "keyword",
+                        "ignore_above": 256
+                    }
+                },
+                "analyzer": "sinhala-analyzer",
+                "search_analyzer": "standard"
+            },
+            "Birth": {
+                "type": "text",
+                "fields": {
+                    "keyword": {
+                        "type": "keyword",
+                        "ignore_above": 256
+                    }
+                },
+                "analyzer": "sinhala-analyzer",
+                "search_analyzer": "standard"
+            },
+            "From": {
+                "type": "text",
+                "fields": {
+                    "keyword": {
+                        "type": "keyword",
+                        "ignore_above": 256
+                    }
+                },
+                "analyzer": "sinhala-analyzer",
+                "search_analyzer": "standard"
+            },
+            "Gender": {
+                "type": "text",
+                "fields": {
+                    "keyword": {
+                        "type": "keyword",
+                        "ignore_above": 256
+                    }
+                },
+                "analyzer": "sinhala-analyzer",
+                "search_analyzer": "standard"
+            },
+            "name": {
+                "type": "text",
+                "fields": {
+                    "keyword": {
+                        "type": "keyword",
+                        "ignore_above": 256
+                    }
+                },
+                "analyzer": "sinhala-analyzer",
+                "search_analyzer": "standard"
+            },
+            "description": {
+                "type": "text",
+                "fields": {
+                    "keyword": {
+                        "type": "keyword",
+                        "ignore_above": 256
+                    }
+                },
+                "analyzer": "sinhala-analyzer",
+                "search_analyzer": "standard"
+            }
+        }
+    }
+}
